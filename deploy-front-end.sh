@@ -1,0 +1,1 @@
+aws s3 cp front-end/ s3://dev-home-inv --recursive --acl=public-read
