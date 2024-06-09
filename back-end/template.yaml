@@ -1,0 +1,27 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  HomeInventoryApp back-end
+
+  SAM Template for HomeInventoryApp back-end
+
+
+Globals:
+  Function:
+    Timeout: 10
+
+Resources:
+  HomeInventoryFunction:
+    Type: AWS::Serverless::Function 
+    Properties:
+      CodeUri: .
+      Handler: app.service_handler
+      Runtime: python3.8
+      Architectures:
+        - x86_64
+      Events:
+        HomeInventory:
+          Type: Api 
+          Properties:
+            Path: /
+            Method: get

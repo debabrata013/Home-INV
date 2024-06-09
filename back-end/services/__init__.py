@@ -1,0 +1,1 @@
+from services.category_service import fetch_all_categories
