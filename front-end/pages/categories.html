@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../styles/core.css">
     <link rel="icon" href="../images/fav-icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="../scripts/core.js"></script>
 </head>
 
 <body>
@@ -53,7 +54,48 @@
                  </li>
             </ul>
         </div>
-        <div class="main"><h1>Categories Page</h1>
+        <div class="main">
+            <div class="toolbar">
+                <button class="add-btn" onclick="openPopup()"><i class="fa fa-plus fa-fw"></i>Add</button>                                                
+            </div>
+            <table id="cat-tbl">
+                <thead>
+                    <tr>
+                        <th>Category Name</th>
+                        <th>Action</th>
+                    </tr>                    
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Grains</td>
+                        <td><i class="fa fa-trash"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Vegetables</td>
+                        <td><i class="fa fa-trash"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Dairy</td>
+                        <td><i class="fa fa-trash"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Fruits</td>
+                        <td><i class="fa fa-trash"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="overlay"> <div class="popup">
+                <h3 class="title">Add Category</h3>
+                <button class="close-btn" onclick="closePopup()"><i class="fa fa-close"></i></button> 
+                <form>
+                    <label for="txt-cat-name">Category Name *</label>
+                    <input type="text" id="txt-cat-name" placeholder="Enter Category Name">
+                    <div class="action">
+                        <button class="save-btn" type="button">Save</button>
+                    </div>
+                </form>                    
+            </div>  
+            </div>
         </div>
      </div>
      <div class="footer">
