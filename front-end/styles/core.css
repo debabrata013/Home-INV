@@ -4,7 +4,7 @@
     --blue-color: #024080;
 --white-color: #FFFFFF;
 --orange-color: #F39405;--black-color: #000000;
---red-color: #FF0000;
+--red-color: #FF0000;--green-color: #1A5F0C;
 --table-row-odd-color: #EBF8FA;
 --table-row-hover-color: #F8F8D5;--overlay-bg-color: rgba(17, 9, 9, 0.7);
 }
@@ -205,4 +205,19 @@ form .action{
     color: var(--white-color);
     border: 0;
     font-size: 16px;    
+}.error {
+    color: var(--red-color);    
+}
+.success {
+    color: var(--green-color);
+}#loader{
+    position: absolute;
+    top: 30%;
+    left: 50%;    
+    z-index: 2;        
+    display: none;
+}
+#loader img{
+    height: 250px;
+    width: auto;    
 }
