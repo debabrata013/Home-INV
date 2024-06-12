@@ -9,4 +9,13 @@ def get_error_from_exception(exc):
                             else "Internal server error")
         }
     return error
-    
+def check_empty(val):    
+    if val is None:
+        return True
+    if val == "":
+        return True    
+    return False
+def check_not_alpha(val):    
+    if val.isalpha():
+        return False
+    return True

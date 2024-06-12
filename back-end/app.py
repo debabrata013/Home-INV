@@ -39,5 +39,5 @@ def service_handler(event, context):
         
     except Exception as e:        
         print(traceback.format_exc())         
-        error = common_utils.get_error_from_exception(exc)
+        error = common_utils.get_error_from_exception(e)
         return error_response(error)
