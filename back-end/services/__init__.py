@@ -7,3 +7,8 @@ from services.inventory_service import fetch_inventory_by_name
 from services.inventory_service import fetch_inventory_by_status
 from services.inventory_service import save_inventory_item
 from services.inventory_service import delete_inventory_item
+
+from services.user_service import fetch_all_users
+from services.user_service import fetch_user_by_name
+from services.user_service import save_user
+from services.user_service import delete_user
