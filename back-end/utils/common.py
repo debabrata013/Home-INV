@@ -1,3 +1,5 @@
+import re
+from datetime import datetime
 def get_error_from_exception(exc):
     error_params = str(exc).split("-")        
     error = {
@@ -19,3 +21,12 @@ def check_not_alpha(val):
     if val.isalpha():
         return False
     return True
+def check_special_characters(val):
+    regex = re.compile('[@_!#$%^&*()<>?/\|}{~:]')
+    if(not regex.search(val) == None):
+        return True
+    return False
+def get_current_date_time():
+    current_date_time = datetime.utcnow()
+    current_date_time = current_date_time.strftime("%d-%b-%Y T%H:%M:%S")
+    return current_date_time

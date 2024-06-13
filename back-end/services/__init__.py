@@ -1,3 +1,9 @@
 from services.category_service import fetch_all_categories
 from services.category_service import save_category
 from services.category_service import delete_category
+
+from services.inventory_service import fetch_all_inventory
+from services.inventory_service import fetch_inventory_by_name
+from services.inventory_service import fetch_inventory_by_status
+from services.inventory_service import save_inventory_item
+from services.inventory_service import delete_inventory_item

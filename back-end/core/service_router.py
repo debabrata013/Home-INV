@@ -18,7 +18,29 @@ def route(event, context):
         input["cat_name"] = (event["headers"]["Cat-Name"]
                         if "Cat-Name" in event["headers"]
                         else event["headers"]["cat-name"])        
-        data = services.delete_category(input)    
+        data = services.delete_category(input)  
+
+    elif service == "fetch_all_inventory":
+        data = services.fetch_all_inventory(input)
+    elif service == "fetch_inventory_by_name":
+        input["item_name"] = (event["headers"]["Item-Name"]
+                            if "Item-Name" in event["headers"]
+                            else event["headers"]["item-name"])
+        data = services.fetch_inventory_by_name(input)
+    elif service == "fetch_inventory_by_status":   
+        input["item_status"] = (event["headers"]["Item-Status"]
+                            if "Item-Status" in event["headers"]
+                            else event["headers"]["item-status"]) 
+        data = services.fetch_inventory_by_status(input)
+    elif service == "save_inventory_item":
+        input = event["body"]
+        input = json.loads(input)
+        data = services.save_inventory_item(input)
+    elif service == "delete_inventory_item":
+        input["item_name"] = (event["headers"]["Item-Name"]
+                            if "Item-Name" in event["headers"]
+                            else event["headers"]["item-name"]) 
+        data = services.delete_inventory_item(input)  
         
     else:
         raise Exception("400-Invalid service")          
