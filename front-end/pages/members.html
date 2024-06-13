@@ -8,11 +8,13 @@
     <title>Home Inventory - Members</title>
     <link rel="stylesheet" href="../styles/core.css">
     <link rel="icon" href="../images/fav-icon.png">
+    <script type="text/javascript" src="../scripts/members.js"></script>
+    <script type="text/javascript" src="../scripts/utils.js"></script>
     <script type="text/javascript" src="../scripts/core.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body>
+<body onload="listMembers()" >
     <h1>Members Page</h1>
     <div class="header">
         <div class="logo">
@@ -57,7 +59,7 @@
         <div class="main">
 
             <div class="toolbar">                
-                <button class="add-btn" onclick="openPopup()"><i class="fa fa-plus fa-fw"></i>Add</button>        
+                <button class="add-btn" onclick="addMember()"><i class="fa fa-plus fa-fw"></i>Add</button>        
             </div>
             <div id="message-main"></div>
             <table id="members-tbl">
@@ -71,26 +73,7 @@
                     </tr>                    
                 </thead> 
                 <tbody>
-                    <tr>
-                        <td>jack.ryan</td>
-                        <td>Jack</td>
-                        <td>Ryan</td>
-                        <td>Enabled</td>                        
-                        <td>
-                            <i class="fa fa-edit fa-fw"></i>
-                            <i class="fa fa-trash"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>jeff.ryan</td>
-                        <td>Jeff</td>
-                        <td>Ryan</td>
-                        <td>Enabled</td>                        
-                        <td>
-                            <i class="fa fa-edit fa-fw"></i>
-                            <i class="fa fa-trash"></i>
-                        </td>
-                    </tr>                                        
+                                           
                 </tbody>   
             </table>
             <div id="overlay">
@@ -110,11 +93,15 @@
     <input type="checkbox" id="cb-login-status" value="enabled" checked="true">                        
 </div>                                                
 <div class="action">
-    <button class="save-btn" type="button">Save</button>
+    <button class="save-btn" type="button"onclick="saveMember()">Save</button>
 </div>     
                     </form>                    
-                </div>   
+                </div> 
+
+            </div><div id="loader">
+                <img src="../images/loader.gif">
             </div>
+
         </div>
      </div>
      <div class="footer">
