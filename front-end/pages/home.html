@@ -10,9 +10,11 @@
     <link rel="icon" href="../images/fav-icon.png">
     <script type="text/javascript" src="../scripts/core.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="../scripts/utils.js"></script>
+    <script type="text/javascript" src="../scripts/home.js"></script>
 </head>
 
-<body>
+<body onload="listInventory()">
     <h1>Home Page</h1>
     <div class="header">
         <div class="logo">
@@ -56,7 +58,7 @@
         </div>
         <div class="main">
             <div class="toolbar">                
-                <button class="add-btn" onclick="openPopup()"><i class="fa fa-plus fa-fw"></i>Add</button>
+                <button class="add-btn" onclick="addInventoryItem()"><i class="fa fa-plus fa-fw"></i>Add</button>
                 <select class="filter">
                     <option value="">Filter By Status</option>                    
                     <option value="high">High</option>
@@ -78,30 +80,7 @@
                     </tr>                    
                 </thead> 
                 <tbody>
-                    <tr>
-                        <td>Rice</td>
-                        <td>Grains</td>
-                        <td>High</td>
-                        <td>jeff.ryan</td>
-                        <td>13-OCT-2022 T18:00</td>
-                        <td>5Kgs purchased</td>
-                        <td>
-                            <i class="fa fa-edit fa-fw"></i>
-                            <i class="fa fa-trash"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Coffee</td>
-                        <td>Beverages</td>
-                        <td>Medium</td>
-                        <td>jeff.ryan</td>
-                        <td>15-OCT-2022 T20:00</td>
-                        <td>2 Bottles purchased</td>
-                        <td>
-                            <i class="fa fa-edit fa-fw"></i>
-                            <i class="fa fa-trash"></i>
-                        </td>
-                    </tr>
+                   
                 </tbody>   
             </table>
             <div id="overlay">   
@@ -126,10 +105,13 @@
 <label for="txt-comment">Comment *</label>
 <input type="text" id="txt-comment" placeholder="Enter Comment">
 <div class="action">
-    <button class="save-btn" type="button">Save</button>
+    <button class="save-btn" type="button"onclick="saveInventory()">Save</button>
 </div>      
                     </form>                    
                 </div>
+            </div>
+            <div id="loader">
+                <img src="../images/loader.gif">
             </div>
         </div>
      </div>
