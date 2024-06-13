@@ -8,6 +8,7 @@
     <title>Home Inventory - Members</title>
     <link rel="stylesheet" href="../styles/core.css">
     <link rel="icon" href="../images/fav-icon.png">
+    <script type="text/javascript" src="../scripts/core.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -53,7 +54,67 @@
                  </li>
             </ul>
         </div>
-        <div class="main"><h1>Members Page</h1>
+        <div class="main">
+
+            <div class="toolbar">                
+                <button class="add-btn" onclick="openPopup()"><i class="fa fa-plus fa-fw"></i>Add</button>        
+            </div>
+            <div id="message-main"></div>
+            <table id="members-tbl">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Login Status</th>            
+                        <th>Action</th>
+                    </tr>                    
+                </thead> 
+                <tbody>
+                    <tr>
+                        <td>jack.ryan</td>
+                        <td>Jack</td>
+                        <td>Ryan</td>
+                        <td>Enabled</td>                        
+                        <td>
+                            <i class="fa fa-edit fa-fw"></i>
+                            <i class="fa fa-trash"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>jeff.ryan</td>
+                        <td>Jeff</td>
+                        <td>Ryan</td>
+                        <td>Enabled</td>                        
+                        <td>
+                            <i class="fa fa-edit fa-fw"></i>
+                            <i class="fa fa-trash"></i>
+                        </td>
+                    </tr>                                        
+                </tbody>   
+            </table>
+            <div id="overlay">
+                <div class="popup">
+                    <h3 class="title" id="popup-title">Add Member</h3>
+                    <button class="close-btn" onclick="closePopup()"><i class="fa fa-close"></i></button> 
+                    <form>   
+                        <div id="message-form"></div>                        
+<label for="txt-username">Username *</label>
+<input type="text" id="txt-username" placeholder="Enter Username">
+<label for="txt-firstname">First Name *</label>
+<input type="text" id="txt-firstname" placeholder="Enter First Name">
+<label for="txt-lastname">Last Name</label>
+<input type="text" id="txt-lastname" placeholder="Enter Last Name">
+<label for="cb-login-status">Login Status</label>
+<div class="cb-wrapper">
+    <input type="checkbox" id="cb-login-status" value="enabled" checked="true">                        
+</div>                                                
+<div class="action">
+    <button class="save-btn" type="button">Save</button>
+</div>     
+                    </form>                    
+                </div>   
+            </div>
         </div>
      </div>
      <div class="footer">

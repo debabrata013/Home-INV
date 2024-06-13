@@ -248,4 +248,9 @@ form select {
 }
 .download-btn .fa-fw {
     margin-right: 5px;
+}form .cb-wrapper {
+    padding-left: 5px;
+}
+form input[type="checkbox"] {
+    transform: scale(1.5);
 }
