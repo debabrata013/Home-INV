@@ -2,7 +2,7 @@
 :root {
     --gray-color: #EEEEEE;
     --blue-color: #024080;
---white-color: #FFFFFF;
+--white-color: #FFFFFF;--placeholder-font-color: #7A7A7A;
 --orange-color: #F39405;--black-color: #000000;
 --red-color: #FF0000;--green-color: #1A5F0C;
 --table-row-odd-color: #EBF8FA;
@@ -157,6 +157,7 @@ table tbody tr:hover {
     height: 100%;
     z-index: 1;
     display: none;
+
 }
 #overlay .popup {
     background-color: var(--white-color);
@@ -220,4 +221,31 @@ form .action{
 #loader img{
     height: 250px;
     width: auto;    
+}.filter {
+    padding: 9px;
+    font-size: 16px;    
+    cursor: pointer;
+    border: 2px solid var(--blue-color);
+    color: var(--blue-color)
+}table tbody td .fa-edit {
+    color: var(--blue-color);
+    font-size: 20px;
+    cursor: pointer;
+}
+form select {
+    color: var(--placeholder-font-color);
+    border: 1px solid var(--blue-color);
+    border-radius: 4px;
+    padding: 15px;
+    font-size: 16px;
+}.download-btn {
+    padding: 10px;
+    width: 150px;
+    font-size: 16px;
+    background-color: var(--blue-color);
+    color: var(--white-color);
+    border: 0;
+}
+.download-btn .fa-fw {
+    margin-right: 5px;
 }
