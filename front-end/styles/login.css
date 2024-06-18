@@ -1,0 +1,56 @@
+@import url(core.css);
+.login-container {
+    background: var(--blue-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;  
+    align-items: center;
+}
+
+.login-box{
+    background: var(--white-color);
+    width: 850px;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: 0 15px 50px var(--black-color);        
+    padding: 20px;
+    display: flex;
+}
+.login-image {
+    width: 50%;            
+    overflow: hidden;
+}
+.login-image img {
+    margin-left: -50px;
+}
+.login-form {
+    padding: 30px;
+    text-align: center;
+}
+.login-form img {
+    height: 100px;
+    margin-top: 20px;
+}
+.login-form .title{
+    color: var(--blue-color);
+    font-weight: 500;
+}
+.login-form input, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    border: none;
+    font-size: 16px;    
+}
+.login-form input {
+    background-color: #F5F5F5;    
+}
+#message{
+    width: 100%;
+    text-align: left;
+    display: none;
+}
+.login-btn {
+    background: var(--black-color);
+    color: var(--white-color);
+}

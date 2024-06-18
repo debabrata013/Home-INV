@@ -254,3 +254,13 @@ form select {
 form input[type="checkbox"] {
     transform: scale(1.5);
 }
+.main .title {
+    padding: 0 0 0 10px;
+}
+.main-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
