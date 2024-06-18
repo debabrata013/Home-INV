@@ -10,8 +10,10 @@ cd .aws-sam/build/HomeInventoryFunction
 rm -f template.yaml
 rm -f README.md
 rm -f requirements.txt
+rm -f pwd_gen.py
 echo "Packaging back-end..."
 zip -r ../../../../home-inv-be.zip .
+
 
 # Clean up build files
 echo "Cleaning up build files..."

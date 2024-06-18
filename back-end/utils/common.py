@@ -1,4 +1,5 @@
 import re
+from datetime import datetime, timedelta
 from datetime import datetime
 def get_error_from_exception(exc):
     error_params = str(exc).split("-")        
@@ -30,3 +31,8 @@ def get_current_date_time():
     current_date_time = datetime.utcnow()
     current_date_time = current_date_time.strftime("%d-%b-%Y T%H:%M:%S")
     return current_date_time
+def get_current_timestamp(delta):
+    current_timestamp = datetime.utcnow()
+    if delta:
+        current_timestamp = current_timestamp + timedelta(seconds = delta)
+    return current_timestamp

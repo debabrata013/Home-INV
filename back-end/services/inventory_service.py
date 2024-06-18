@@ -58,7 +58,7 @@ def save_inventory_item(input):
     validate_cat_name(input["cat_name"])
     validate_item_status(input["item_status"])
     inv_tbl = dynamodb.Table(INV_TABLE)    
-    input["last_updated_by"] = "jack.ryan"
+    input["last_updated_by"] = input["username"]
     input["last_updated_at"] = common_utils.get_current_date_time()
     inv_tbl.put_item(
         Item={

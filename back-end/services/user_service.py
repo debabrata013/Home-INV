@@ -1,6 +1,8 @@
 from core.db import dynamodb
 import utils.common as common_utils
-from boto3.dynamodb.conditions import Key, Attr
+import boto3
+from core.auth import generate_hash
+TEMPORARY_PASSWORD = "golden-eye"
 USR_TABLE = "users"
 LOGIN_STATUS_LIST = ["enabled","disabled"]
 def validate_username(username):
@@ -48,15 +50,30 @@ def save_user(input):
     login_stat = True
     if input["login_status"] == "disabled":
             login_stat = False
-    usr_tbl = dynamodb.Table(USR_TABLE)        
-    usr_tbl.put_item(
-        Item={
-            'username': input["username"],
-            'first_name': input["firstname"],
-            'last_name': input["lastname"],
-            'login_stat': login_stat
-        }
-    )     
+    usr_tbl = dynamodb.Table(USR_TABLE) 
+    usr_data = fetch_user_by_name(input)
+    if not usr_data:
+        temporary_pwd = generate_hash(TEMPORARY_PASSWORD)
+        usr_tbl.put_item(
+            Item={
+                'username': input["username"],
+                'first_name': input["firstname"],
+                'last_name': input["lastname"],
+                'login_stat': login_stat,
+                'password': temporary_pwd
+            }
+        )
+    else:
+        usr_tbl.update_item(
+            Key={'username': input["username"]},
+            UpdateExpression=("set first_name=:fn, last_name=:ln, login_stat=:stat"),
+            ExpressionAttributeValues={                
+                ':fn': input["firstname"],
+                ':ln': input["lastname"],
+                ':stat': login_stat
+            }
+        )                 
+    
     return fetch_user_by_name(input)
 
 def delete_user(input): 

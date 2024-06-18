@@ -12,3 +12,6 @@ from services.user_service import fetch_all_users
 from services.user_service import fetch_user_by_name
 from services.user_service import save_user
 from services.user_service import delete_user
+
+from services.auth_service import auth_user
+from services.auth_service import change_pwd
