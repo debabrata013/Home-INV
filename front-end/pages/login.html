@@ -8,6 +8,8 @@
     <title>Home Inventory - Login</title>
     <link rel="icon" href="../images/fav-icon.png">
     <link rel="stylesheet" href="../styles/login.css">
+    <script type="text/javascript" src="../scripts/core.js"></script>    
+<script type="text/javascript" src="../scripts/login.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">        
 </head>
 <body>
@@ -22,9 +24,12 @@
                 <h4 class="title">Login - Home Inventory App</h4>    
                 <input type="text" id="txt-username" placeholder="Username">
 <input type="password" id="pwd" placeholder="Password">
-<button type="button" class="login-btn">Login</button>                
+<button type="button" class="login-btn" onclick="login()">Login</button>                
             </form>        
         </div>
+    </div>
+    <div id="loader">
+        <img src="../images/loader.gif">
     </div>
 </body>
 </html>

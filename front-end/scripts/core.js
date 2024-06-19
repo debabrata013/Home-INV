@@ -1,4 +1,5 @@
 const BACK_END_URL = "https://jttw76rrqmd2ylru5wqf7nltzq0uiqos.lambda-url.ap-southeast-1.on.aws/";
+const TOKEN_EXPIRED_MESSAGE = "Token has expired";
 function openPopup(){
     document.getElementById("overlay").style.display="block";
 }
@@ -7,7 +8,8 @@ function closePopup(){
     document.getElementById("overlay").style.display="none";
 }
 async function getData(params){   
-    showLoader();   
+    showLoader();  
+    addAuthorizationHeader(params); 
     const requestOptions = {
         method: "GET",
         headers: params
@@ -17,7 +19,8 @@ async function getData(params){
     return response.json();
 }
 async function deleteData(params){ 
-    showLoader();          
+    showLoader();    
+    addAuthorizationHeader(params);      
     const requestOptions = {
         method: "DELETE",
         headers: params
@@ -27,7 +30,8 @@ async function deleteData(params){
     return response.json();
 }
 async function postData(params, data){    
-    showLoader();      
+    showLoader(); 
+    addAuthorizationHeader(params);     
     const requestOptions = {
         method: "POST",
         headers: params,
@@ -44,8 +48,14 @@ function resetMessageElement(msgElement){
     msgElement.style.display="none";
 }
 function showError(msgElement, errMsg){
+   
     resetMessageElement(msgElement);
-    msgElement.textContent="Failed! "+errMsg;
+    if(errMsg.includes(TOKEN_EXPIRED_MESSAGE)){
+        msgElement.textContent="Session Timed Out! Logout & Re-Login";    
+    } else {
+        msgElement.textContent="Failed! "+errMsg;    
+    }    
+
     msgElement.classList.add("error");
     msgElement.style.display="block";
 }
@@ -63,4 +73,22 @@ function showLoader(){
 }
 function hideLoader(){
     document.getElementById("loader").style.display="none";
+}
+function displayUsername(){
+    let username = sessionStorage.getItem("username");
+    if(username){
+        document.getElementById("username").textContent=username;
+    } else {
+        window.location.replace("login.html");
+    }    
+}
+function logout(event){
+    sessionStorage.clear();
+    window.location.replace("login.html");    
+}
+function addAuthorizationHeader(params){
+    if(sessionStorage.getItem("auth_token")){
+        const authToken = sessionStorage.getItem("auth_token");
+        params["Authorization"] = "Bearer "+authToken;
+    }    
 }
