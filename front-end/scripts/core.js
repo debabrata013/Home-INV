@@ -1,4 +1,4 @@
-const BACK_END_URL = "https://jttw76rrqmd2ylru5wqf7nltzq0uiqos.lambda-url.ap-southeast-1.on.aws/";
+const BACK_END_URL = "https://vume2htjpkhyebatlrawcc36fm0aljmy.lambda-url.ap-southeast-1.on.aws/";
 const TOKEN_EXPIRED_MESSAGE = "Token has expired";
 function openPopup(){
     document.getElementById("overlay").style.display="block";
